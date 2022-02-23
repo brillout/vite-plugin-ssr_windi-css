@@ -9,6 +9,8 @@ specifiers:
   react-dom: ^17.0.2
   vite: ^2.8.1
   vite-plugin-ssr: ^0.3.58
+  vite-plugin-windicss: ^1.7.1
+  windicss: ^3.4.4
 
 dependencies:
   '@vitejs/plugin-react': 1.2.0
@@ -19,6 +21,8 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   vite: 2.8.4
   vite-plugin-ssr: 0.3.58_vite@2.8.4
+  vite-plugin-windicss: 1.7.1_vite@2.8.4
+  windicss: 3.4.4
 
 packages:
 
@@ -27,6 +31,12 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       '@jridgewell/trace-mapping': 0.3.4
+    dev: false
+
+  /@antfu/utils/0.4.0:
+    resolution: {integrity: sha512-gqkpvjkgFUu+s3kP+Ly33OKpo5zvVY3FDFhv5BIb98SncS3KD6DNxPfNDjwHIoyXbz1leWo1j8DtRLZ1D2Jv+Q==}
+    dependencies:
+      '@types/throttle-debounce': 2.1.0
     dev: false
 
   /@babel/code-frame/7.16.7:
@@ -343,6 +353,10 @@ packages:
       picomatch: 2.3.1
     dev: false
 
+  /@types/throttle-debounce/2.1.0:
+    resolution: {integrity: sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==}
+    dev: false
+
   /@vitejs/plugin-react/1.2.0:
     resolution: {integrity: sha512-Rywwt0IXXg6yQ0hv3cMT3mtdDcGIw31mGaa+MMMAT651LhoXLF2yFy4LrakiTs7UKs7RPBo9eNgaS8pgl2A6Qw==}
     engines: {node: '>=12.0.0'}
@@ -355,6 +369,30 @@ packages:
       '@rollup/pluginutils': 4.1.2
       react-refresh: 0.11.0
       resolve: 1.22.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@windicss/config/1.7.1:
+    resolution: {integrity: sha512-bT4Ze8d1kTKbVdQZ7yal9vjhIfuYypco2gVTy4OXvg6eAHFNZaOB/Ai4FqdRKvbgOqChHGiC32r5J55hmq6tDw==}
+    dependencies:
+      debug: 4.3.3
+      jiti: 1.13.0
+      windicss: 3.4.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@windicss/plugin-utils/1.7.1:
+    resolution: {integrity: sha512-VMBLZ11s5kQt1RIIwfB45xFswb+SI1cvI5mK07dUSlfpomG1d1bqnB57bioo/jFNZh2Rl8wVnEvLTl7iZ4r09Q==}
+    dependencies:
+      '@antfu/utils': 0.4.0
+      '@windicss/config': 1.7.1
+      debug: 4.3.3
+      fast-glob: 3.2.11
+      magic-string: 0.25.7
+      micromatch: 4.0.4
+      windicss: 3.4.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -958,6 +996,11 @@ packages:
     resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
     dev: false
 
+  /jiti/1.13.0:
+    resolution: {integrity: sha512-/n9mNxZj/HDSrincJ6RP+L+yXbpnB8FybySBa+IjIaoH9FIxBbrbRT5XUbe8R7zuVM2AQqNMNDDqz0bzx3znOQ==}
+    hasBin: true
+    dev: false
+
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: false
@@ -985,6 +1028,12 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: false
+
+  /magic-string/0.25.7:
+    resolution: {integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==}
+    dependencies:
+      sourcemap-codec: 1.4.8
     dev: false
 
   /media-typer/0.3.0:
@@ -1291,6 +1340,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /sourcemap-codec/1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    dev: false
+
   /statuses/1.5.0:
     resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=}
     engines: {node: '>= 0.6'}
@@ -1370,6 +1423,20 @@ packages:
       vite-plugin-import-build: 0.1.3
     dev: false
 
+  /vite-plugin-windicss/1.7.1_vite@2.8.4:
+    resolution: {integrity: sha512-eEDeTPaeQAfe0widkTkm9X51BVpOE/yDIuFbULIKjXI7CfY1yjsPcxA6E3aZbLBYQcUmfhVUTYVaH5iAE5L8Hg==}
+    peerDependencies:
+      vite: ^2.0.1
+    dependencies:
+      '@windicss/plugin-utils': 1.7.1
+      debug: 4.3.3
+      kolorist: 1.5.1
+      vite: 2.8.4
+      windicss: 3.4.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /vite/2.8.4:
     resolution: {integrity: sha512-GwtOkkaT2LDI82uWZKcrpRQxP5tymLnC7hVHHqNkhFNknYr0hJUlDLfhVRgngJvAy3RwypkDCWtTKn1BjO96Dw==}
     engines: {node: '>=12.2.0'}
@@ -1400,6 +1467,12 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
+    dev: false
+
+  /windicss/3.4.4:
+    resolution: {integrity: sha512-M3ZTw8wiluUjg16Pu7nwqZmmCiX+eEX6yArzXX0a/HFQWhwyghi7ouT2m95XQsXqvnzAw9FKiF2eFHGfOezdsg==}
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: false
 
   /yocto-queue/0.1.0:
